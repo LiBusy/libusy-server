@@ -4,6 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+    "hash": "24c7dc7facc7347cb406865fdc055aa3",
     "content-hash": "75944a10eee74fe1ee509b4eef8600af",
     "packages": [
         {
@@ -82,7 +83,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-07-29T03:23:52+00:00"
+            "time": "2016-07-29 03:23:52"
         },
         {
             "name": "pimple/pimple",
@@ -128,7 +129,7 @@
                 "container",
                 "dependency injection"
             ],
-            "time": "2013-11-22T08:30:29+00:00"
+            "time": "2013-11-22 08:30:29"
         },
         {
             "name": "psr/log",
@@ -175,7 +176,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-10-10T12:19:37+00:00"
+            "time": "2016-10-10 12:19:37"
         },
         {
             "name": "silex/silex",
@@ -252,7 +253,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2016-01-06T14:59:35+00:00"
+            "time": "2016-01-06 14:59:35"
         },
         {
             "name": "symfony/debug",
@@ -309,7 +310,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2016-09-06T11:02:40+00:00"
+            "time": "2016-09-06 11:02:40"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -369,7 +370,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-19T10:44:15+00:00"
+            "time": "2016-07-19 10:44:15"
         },
         {
             "name": "symfony/http-foundation",
@@ -422,7 +423,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-17T13:54:30+00:00"
+            "time": "2016-07-17 13:54:30"
         },
         {
             "name": "symfony/http-kernel",
@@ -504,7 +505,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-30T09:10:37+00:00"
+            "time": "2016-07-30 09:10:37"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -563,7 +564,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-05-18T14:26:46+00:00"
+            "time": "2016-05-18 14:26:46"
         },
         {
             "name": "symfony/routing",
@@ -638,7 +639,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2016-06-29T05:40:00+00:00"
+            "time": "2016-06-29 05:40:00"
         },
         {
             "name": "symfony/twig-bridge",
@@ -719,7 +720,7 @@
             ],
             "description": "Symfony Twig Bridge",
             "homepage": "https://symfony.com",
-            "time": "2016-10-03T15:49:46+00:00"
+            "time": "2016-10-03 15:49:46"
         },
         {
             "name": "twig/twig",
@@ -780,7 +781,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-10-05T18:57:41+00:00"
+            "time": "2016-10-05 18:57:41"
         }
     ],
     "packages-dev": [
@@ -826,7 +827,7 @@
                 "nginx",
                 "php"
             ],
-            "time": "2016-09-20T20:47:04+00:00"
+            "time": "2016-09-20 20:47:04"
         }
     ],
     "aliases": [],
