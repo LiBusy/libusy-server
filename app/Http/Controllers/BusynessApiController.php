@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\LibraryBusyness
+use App\LibraryBusyness;
 
 class BusynessApiController extends Controller
 {
