@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class LibraryBusyness extends Model
 {
-    protected $table = 'library_busyness'
+    protected $table = 'library_busyness';
     public $timestamps = false;
 }
