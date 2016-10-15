@@ -21,6 +21,12 @@ class BusynessApiController extends Controller
         return $busyness->toJson();
     }
 
+    public function getBusynessLevel($library)
+    {
+        $busyness = LibraryBusyness::where('library', '=', $library)->avg('level');
+        return $busyness;
+    }
+
     /**
      * Show the form for creating a new resource.
      *

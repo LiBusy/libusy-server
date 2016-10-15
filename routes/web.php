@@ -15,5 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('busyness/getlevel/{library}', 'BusynessApiController@getBusynessLevel');
+
 Route::resource('busyness', 'BusynessApiController');
 
