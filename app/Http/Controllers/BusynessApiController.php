@@ -18,7 +18,7 @@ class BusynessApiController extends Controller
     public function index()
     {
         $busyness = LibraryBusyness::all();
-        dd($busyness);
+        //dd($busyness);
     }
 
     /**
