@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -13,12 +14,20 @@ class BusynessApiController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
         $busyness = LibraryBusyness::all();
         return $busyness->toJson();
+    }
+
+    public function postCheckIn($library, $busyness)
+    {
+        $libraryBusyness = new LibraryBusyness();
+        $libraryBusyness->level = $busyness;
+        $libraryBusyness->library = $library;
+        $libraryBusyness->timestamp = Carbon::now();
+        $libraryBusyness->save();
     }
 
     public function getBusynessLevel($library)
