@@ -18,7 +18,8 @@ class BusynessApiController extends Controller
     public function index()
     {
         $busyness = LibraryBusyness::all();
-        return $busyness->toJson();
+        return response()->json($busyness);
+       // return $busyness->toJson();
     }
 
     public function postCheckIn($library, $busyness)
