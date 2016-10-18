@@ -18,4 +18,5 @@ Route::get('/', function () {
 Route::get('busyness/getlevel/{library}', 'BusynessApiController@getBusynessLevel');
 Route::post('busyness/checkin/{library}/{busyness}', 'BusynessApiController@postCheckIn');
 Route::resource('busyness', 'BusynessApiController');
+Route::resource('usermarkers', 'UserMarkerController');
 
