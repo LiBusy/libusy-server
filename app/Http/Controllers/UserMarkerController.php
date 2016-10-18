@@ -17,7 +17,7 @@ class UserMarkerController extends Controller
      */
     public function index()
     {
-        return DB::table('user_marker_coordinates')->select('lat', 'lng')->get();
+        return UserCoordinates::select('lat', 'lng')->get();
     }
 
     /**
