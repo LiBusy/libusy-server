@@ -15,8 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('busyness/getlevel/{library}', 'BusynessApiController@getBusynessLevel');
-Route::post('busyness/checkin/{library}/{busyness}', 'BusynessApiController@postCheckIn');
-Route::resource('busyness', 'BusynessApiController');
-Route::resource('usermarkers', 'UserMarkerController');
+Route::get('busyness/getlevel/{library}', 'BusynessApiController@getBusynessLevel')->middleware('verify.key');
+Route::post('busyness/checkin/{library}/{busyness}', 'BusynessApiController@postCheckIn')->middleware('verify.key');
+Route::resource('busyness', 'BusynessApiController')->middleware('verify.key');
+Route::resource('usermarkers', 'UserMarkerController')->middleware('verify.key');
 
