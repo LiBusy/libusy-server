@@ -18,6 +18,7 @@ class VerifyApiKey
     public function handle($request, Closure $next)
     {
         //333C949CDEEBAB5ED3C747AF3EBBE
+        dd($request->query('key'));
         if ($request->query('key') != '333C949CDEEBAB5ED3C747AF3EBBE')
         {
             return redirect('/');
