@@ -18,7 +18,7 @@ class VerifyApiKey
     public function handle($request, Closure $next)
     {
         //333C949CDEEBAB5ED3C747AF3EBBE
-        dd($request);
+        dd(get_class_methods($request));
         return $next($request);
     }
 }
