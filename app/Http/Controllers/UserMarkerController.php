@@ -6,7 +6,6 @@ use App\UserCoordinates;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use Illuminate\Support\Facades\DB;
 
 class UserMarkerController extends Controller
 {
