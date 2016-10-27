@@ -20,7 +20,6 @@ class VerifyApiKey
     {
         if ($request->query('key') != '333C949CDEEBAB5ED3C747AF3EBBE')
         {
-            Log::warning('Request used incorrect API key');
             return redirect('/'); // TODO need to have some form of message
         }
         return $next($request);

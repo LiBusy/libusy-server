@@ -18,7 +18,6 @@ class VerifyCoordinates
     {
         if ($request->segment(3) == "0.0" || $request->segment(4) == "0.0")
         {
-            Log::warning('User location not obtained correctly.');
             return redirect('/');
         }
         return $next($request);
