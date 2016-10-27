@@ -52,6 +52,7 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'verify.key' => \App\Http\Middleware\VerifyApiKey::class
+        'verify.key' => \App\Http\Middleware\VerifyApiKey::class,
+        'verify.coordinates' => \App\Http\Middleware\VerifyCoordinates::class
     ];
 }
