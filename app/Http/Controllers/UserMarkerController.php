@@ -25,9 +25,9 @@ class UserMarkerController extends Controller
         $marker = new UserCoordinates();
         $marker->lat = $lat;
         $marker->lng = $lng;
-        if ($marker->lat == 0 && $marker->lng = 0) // default shared preference value
+        if ($marker->lat == 0.0 && $marker->lng = 0.0) // default shared preference value
         {
-            return;
+            return false;
         }
         $marker->timestamp = Carbon::now();
         $marker->save();
