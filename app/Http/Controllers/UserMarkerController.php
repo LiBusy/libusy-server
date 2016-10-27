@@ -25,8 +25,8 @@ class UserMarkerController extends Controller
         $marker = new UserCoordinates();
         $marker->lat = $lat;
         $marker->lng = $lng;
-        dd($marker);
-        if ($marker->lat == 0.0 && $marker->lng = 0.0) // default shared preference value
+        dd(floatValue($marker->lat));
+        if ($marker->lat == "0.0" && $marker->lng = "0.0") // default shared preference value
         {
             return false;
         }
