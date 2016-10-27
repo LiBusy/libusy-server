@@ -15,7 +15,10 @@ class VerifyCoordinates
      */
     public function handle($request, Closure $next)
     {
-        dd($request->segment(1));
+        if ($request->segment(3) == "0.0" || $request->segment(4) == "0.0")
+        {
+            return false;
+        }
         return $next($request);
     }
 }
