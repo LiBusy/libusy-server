@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\UserCoordinates;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -17,6 +18,16 @@ class UserMarkerController extends Controller
     public function index()
     {
         return UserCoordinates::select('lat', 'lng')->get();
+    }
+
+    public function postMarker($lat, $lng)
+    {
+        $marker = new UserCoordinates();
+        $marker->lat = $lat;
+        $marker->lng = $lng;
+        $marker->timestamp = Carbon::now();
+        $marker->save();
+
     }
 
     /**
