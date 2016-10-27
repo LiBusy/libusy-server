@@ -17,7 +17,7 @@ class VerifyCoordinates
     {
         if ($request->segment(3) == "0.0" || $request->segment(4) == "0.0")
         {
-            return false;
+            return redirect('/');
         }
         return $next($request);
     }
