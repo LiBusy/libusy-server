@@ -15,7 +15,7 @@ class VerifyCoordinates
      */
     public function handle($request, Closure $next)
     {
-        dd($request);
+        dd($request->segment(1));
         return $next($request);
     }
 }
