@@ -25,6 +25,7 @@ class UserMarkerController extends Controller
         $marker = new UserCoordinates();
         $marker->lat = $lat;
         $marker->lng = $lng;
+        dd($marker->lat);
         $marker->timestamp = Carbon::now();
         $marker->save();
 
