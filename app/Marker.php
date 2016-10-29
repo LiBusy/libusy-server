@@ -20,7 +20,10 @@ class Marker extends Model
     public function getSnippetAttribute()
     {
         $busyness = LibraryBusyness::where('library', '=', $this->attributes['library'])->avg('level');
-        return $this->attributes['snippet'] = $this->createBusynessText($busyness);
+        $users = UserCoordinates::where('library', '=', $this->attributes['library'])->count();
+        return $this->attributes['snippet'] = $this->createBusynessText($busyness)
+                                                .'\n'
+                                                .$users." have checked in.";
     }
 
     private function createBusynessText($response)
