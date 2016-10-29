@@ -19,7 +19,7 @@ Route::group(['middleware' => 'verify.key'], function()
 {
     Route::get('busyness/getlevel/{library}', 'BusynessApiController@getBusynessLevel');
     Route::post('busyness/checkin/{library}/{busyness}', 'BusynessApiController@postCheckIn');
-    Route::post('usermarkers/postmarker/{lat}/{lng}', 'UserMarkerController@postMarker')->middleware('verify.coordinates');
+    Route::post('usermarkers/postmarker/{lat}/{lng}/{library}', 'UserMarkerController@postMarker')->middleware('verify.coordinates');
     Route::resource('busyness', 'BusynessApiController');
     Route::resource('usermarkers', 'UserMarkerController');
 });

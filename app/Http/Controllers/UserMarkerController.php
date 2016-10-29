@@ -20,11 +20,12 @@ class UserMarkerController extends Controller
         return UserCoordinates::select('lat', 'lng')->get();
     }
 
-    public function postMarker($lat, $lng)
+    public function postMarker($lat, $lng, $library)
     {
         $marker = new UserCoordinates();
         $marker->lat = $lat;
         $marker->lng = $lng;
+        $marker->library = $library;
         $marker->timestamp = Carbon::now();
         $marker->save();
 
