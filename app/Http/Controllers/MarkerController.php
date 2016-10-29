@@ -2,35 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\UserCoordinates;
-use Carbon\Carbon;
+use App\Marker;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class UserMarkerController extends Controller
+class MarkerController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     * for the heatmap of user locations
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return UserCoordinates::select('lat', 'lng')->get();
-    }
-
-    public function postMarker($lat, $lng, $library)
-    {
-        $marker = new UserCoordinates();
-        $marker->lat = $lat;
-        $marker->lng = $lng;
-        $marker->library = $library;
-        $marker->timestamp = Carbon::now();
-        $marker->save();
-
+        return response()->json(Marker::all());
     }
 
     /**
