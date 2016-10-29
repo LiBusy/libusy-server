@@ -19,7 +19,7 @@ class Marker extends Model
 
     public function getSnippetAttribute()
     {
-        dd($this);
-        return $this->attributes['snippet'] = 'bone';
+        $busyness = LibraryBusyness::where('library', '=', $this->attributes['library'])->avg('level');
+        return $this->attributes['snippet'] = $busyness;
     }
 }
