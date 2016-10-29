@@ -20,6 +20,23 @@ class Marker extends Model
     public function getSnippetAttribute()
     {
         $busyness = LibraryBusyness::where('library', '=', $this->attributes['library'])->avg('level');
-        return $this->attributes['snippet'] = $busyness;
+        return $this->attributes['snippet'] = $this->createBusynessText($busyness);
     }
+
+    private function createBusynessText($response)
+    {
+
+        if ((float) $response < 1.5)
+        {
+            return "Not Busy";
+        }
+
+        if ((float) $response < 2.5)
+        {
+            return "Busy";
+        }
+
+        return "Very Busy";
+    }
+
 }
