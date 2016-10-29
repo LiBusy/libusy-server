@@ -22,7 +22,7 @@ class Marker extends Model
         $busyness = LibraryBusyness::where('library', '=', $this->attributes['library'])->avg('level');
         $users = UserCoordinates::where('library', '=', $this->attributes['library'])->count();
         return $this->attributes['snippet'] = $this->createBusynessText($busyness)
-                                                ."<br>"
+                                                ."                        "
                                                 .$users." have checked in.";
     }
 
