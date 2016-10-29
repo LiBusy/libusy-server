@@ -19,6 +19,7 @@ class Marker extends Model
 
     public function getSnippetAttribute()
     {
+        dd($this);
         return $this->attributes['snippet'] = 'bone';
     }
 }
