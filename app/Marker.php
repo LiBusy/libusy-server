@@ -14,4 +14,11 @@ class Marker extends Model
         'lat' => 'float',
         'lng' => 'float'
     ];
+
+    protected $appends = ['snippet'];
+
+    public function getSnippetAttribute()
+    {
+        return $this->attributes['snippet'] = 'bone';
+    }
 }
