@@ -31,6 +31,8 @@ class MarkerController extends Controller
         $markers = Marker::all();
         foreach ($markers as $marker)
         {
+            $place = $this->locations->getAll($marker->place_id);
+            dd($place);
             $marker->bone = "bone";
         }
 
