@@ -15,7 +15,7 @@ class Marker extends Model
         'lng' => 'float'
     ];
 
-    protected $appends = ['snippet'];
+    protected $appends = ['snippet', 'busyness'];
 
     public function getSnippetAttribute()
     {
@@ -25,6 +25,13 @@ class Marker extends Model
                                                 ."\n"
                                                 .$users." have checked in.";
     }
+
+    public function getBusynessAttribute()
+    {
+        return $this->attributes['busyness'] = LibraryBusyness::where('library', '=', $this->attributes['library'])->avg('level');
+    }
+
+
 
     private function createBusynessText($response)
     {
