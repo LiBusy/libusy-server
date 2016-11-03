@@ -32,11 +32,12 @@ class MarkerController extends Controller
         foreach ($markers as $marker)
         {
             $place = $this->locations->getAll($marker->place_id);
-            dd($place);
+            $decoded = json_decode($place);
+            dd($decoded->result);
             $marker->bone = "bone";
         }
 
-        dd($markers);
+        //dd($markers);
         return response()->json($markers);
     }
 
