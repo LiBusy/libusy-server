@@ -57,7 +57,7 @@ class MarkerController extends Controller
             }
             else
             {
-                $marker->open_now = '';
+                $marker->open_now = 'Open/Closed status not available.';
             }
 
             if(isset($place->result->name))
