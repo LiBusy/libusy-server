@@ -24,7 +24,6 @@ class VerifyApiKey
         {
             return redirect('/'); // TODO need to have some form of message
         }
-        dd("HERE");
         return $next($request);
     }
 }

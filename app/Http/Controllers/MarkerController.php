@@ -26,6 +26,7 @@ class MarkerController extends Controller
      */
     public function index()
     {
+        dd(LocationRepositoryInterface::class);
         //$this->locations->getSnippet("bone");
         return response()->json(Marker::all());
     }
