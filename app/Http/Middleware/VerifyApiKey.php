@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Contracts\LocationRepositoryInterface;
 use Closure;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Log;
@@ -23,6 +24,7 @@ class VerifyApiKey
         {
             return redirect('/'); // TODO need to have some form of message
         }
+        dd(LocationRepositoryInterface::class);
         return $next($request);
     }
 }
