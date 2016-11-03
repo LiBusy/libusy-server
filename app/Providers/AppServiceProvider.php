@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Contracts\LocationRepositoryInterface;
+use App\Support\LocationRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('App\Contracts\LocationRepositoryInterface', 'App\Support\LocationRepository');
+        $this->app->bind(LocationRepositoryInterface::class, LocationRepository::class);
     }
 }
