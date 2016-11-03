@@ -5,6 +5,6 @@ namespace App;
 interface LocationRepositoryInterface
 {
 
-    public function getSnippet($placeId);
+    public function getAll($placeId);
 
 }

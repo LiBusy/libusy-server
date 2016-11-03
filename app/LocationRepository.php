@@ -3,8 +3,11 @@
 class LocationRepository implements LocationRepositoryInterface
 {
 
-    public function getSnippet($placeId)
+    public function getAll($placeId)
     {
-        dump("here");
+//        $url = 'https://maps.googleapis.com/maps/api/place/details/json?placeid='.$placeId.'&key=AIzaSyAseWPTr6P88XO1gm78yUq5MkR9pu1t7jA';
+//        $response = http_get($url);
+//        dd($response);
+
     }
 }

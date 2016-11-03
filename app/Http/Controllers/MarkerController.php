@@ -28,8 +28,14 @@ class MarkerController extends Controller
      */
     public function index()
     {
-        //$this->locations->getSnippet("bone");
-        return response()->json(Marker::all());
+        $markers = Marker::all();
+        foreach ($markers as $marker)
+        {
+            $marker->bone = "bone";
+        }
+
+        dd($markers);
+        return response()->json($markers);
     }
 
     /**
