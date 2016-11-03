@@ -14,9 +14,9 @@ class MarkerController extends Controller
     private $locations;
 
 
-    public function __construct()
+    public function __construct(LocationRepositoryInterface $locations)
     {
-        //$this->locations= $locations;
+        $this->locations= $locations;
     }
 
     /**
@@ -26,7 +26,7 @@ class MarkerController extends Controller
      */
     public function index()
     {
-        //$this->locations->getSnippet("bone");
+        $this->locations->getSnippet("bone");
         return response()->json(Marker::all());
     }
 
