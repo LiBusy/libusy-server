@@ -32,7 +32,7 @@ class MarkerController extends Controller
         foreach ($markers as $marker)
         {
             $place = $this->locations->getAll($marker->place_id);
-            dd($place);
+            dd($place->result['formatted_phone_number']);
 
 
         }
