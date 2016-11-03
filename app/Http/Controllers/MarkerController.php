@@ -35,7 +35,7 @@ class MarkerController extends Controller
             dump($place);
 
 
-           // $marker->phone_number = $place->result->formatted_phone_number;
+            $marker->title = $place->result->name;
         }
 
         //dd($markers);
