@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\LibraryBusyness;
-use App\LocationRepository;
 use App\LocationRepositoryInterface;
 use App\Marker;
-use App\User;
-use App\UserCoordinates;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\App;
 
 class MarkerController extends Controller
 {
@@ -18,10 +15,10 @@ class MarkerController extends Controller
     protected $locations;
 
 
-    public function __construct(LocationRepository $locations) //\App\Contracts\LocationRepositoryInterface $locations
+    public function __construct(LocationRepositoryInterface $locations) //\App\Contracts\LocationRepositoryInterface $locations
     {
-        dd(LocationRepositoryInterface::class);
-        $this->locations= $locations;
+        $this->locations = $locations;
+        dd($this->locations);
     }
 
     /**

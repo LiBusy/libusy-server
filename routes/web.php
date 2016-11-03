@@ -17,7 +17,6 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'verify.key'], function()
 {
-    \Illuminate\Support\Facades\App::bind('App\LocationRepositoryInterface', 'App\LocationRepository');
     Route::get('busyness/getlevel/{library}', 'BusynessApiController@getBusynessLevel');
     Route::post('busyness/checkin/{library}/{busyness}', 'BusynessApiController@postCheckIn');
     Route::post('usermarkers/postmarker/{lat}/{lng}/{library}', 'UserMarkerController@postMarker')->middleware('verify.coordinates');
