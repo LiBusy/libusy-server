@@ -38,22 +38,39 @@ class MarkerController extends Controller
             {
                 $marker->phone_number = $place->result->formatted_phone_number;
             }
-
-            if(isset($place->result->name))
+            else
             {
-                $marker->title = $place->result->name;
+                $marker->phone_number = 'Phone number not available';
+            }
+
+            if(isset($place->result->formatted_address))
+            {
+                $marker->address = $place->result->formatted_address;
+            }
+            else
+            {
+                $marker->address = 'Address not available';
             }
 
             if(isset($place->result->opening_hours->open_now))
             {
                 $marker->open_now = $this->isOpenNow($place->result->opening_hours->open_now);
             }
+            else
+            {
+                $marker->open_now = '';
+            }
+
+            if(isset($place->result->name))
+            {
+                $marker->title = $place->result->name;
+            }
 
 
 
         }
 
-        //dd($markers);
+        dd($markers);
         return response()->json($markers);
     }
 

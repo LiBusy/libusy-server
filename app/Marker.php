@@ -15,13 +15,7 @@ class Marker extends Model
         'lng' => 'float'
     ];
 
-    protected $defaults = array(
-        'address' => 'Address not available.',
-        'open_now' => '',
-        'phone_number' => 'Phone number not available.'
-    );
-
-    protected $appends = ['snippet', 'address', 'open_now', 'phone_number'];
+    protected $appends = ['snippet'];
 
     public function getSnippetAttribute()
     {
