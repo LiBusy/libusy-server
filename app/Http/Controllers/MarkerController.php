@@ -36,6 +36,7 @@ class MarkerController extends Controller
 
             if(isset($place->result->formatted_phone_number))
             {
+                dd('here');
                 $marker->phone_number = $place->result->formatted_phone_number;
             }
 
