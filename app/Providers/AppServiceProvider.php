@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        dd(LocationRepositoryInterface::class);
+        //dd(LocationRepositoryInterface::class);
         $this->app->bind(LocationRepositoryInterface::class, LocationRepository::class);
     }
 }
