@@ -1,8 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\App;
-use App\Contracts\LocationRepositoryInterface;
-use App\Support\LocationRepository;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,7 +10,6 @@ use App\Support\LocationRepository;
 | to using a Closure or controller method. Build something great!
 |
 */
-App::bind(LocationRepositoryInterface::class, LocationRepository::class);
 
 Route::get('/', function () {
     return view('welcome');
