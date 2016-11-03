@@ -32,7 +32,6 @@ class MarkerController extends Controller
         foreach ($markers as $marker)
         {
             $place = $this->locations->getAll($marker->place_id);
-            dump($place);
 
             if(isset($place->result->formatted_phone_number))
             {
@@ -70,7 +69,6 @@ class MarkerController extends Controller
 
         }
 
-        //dd($markers);
         return response()->json($markers);
     }
 
