@@ -15,21 +15,26 @@ class Marker extends Model
         'lng' => 'float'
     ];
 
-    protected $appends = ['snippet', 'busyness'];
+    protected $appends = ['busyness', 'check_ins'];
 
-    public function getSnippetAttribute()
-    {
-        $busyness = LibraryBusyness::where('library', '=', $this->attributes['library'])->avg('level');
-        $users = UserCoordinates::where('library', '=', $this->attributes['library'])->count();
-        return $this->attributes['snippet'] = $this->createBusynessText($busyness)
-                                                ."\n"
-                                                .$users." have checked in.";
-    }
+//    public function getSnippetAttribute()
+//    {
+//        $busyness = LibraryBusyness::where('library', '=', $this->attributes['library'])->avg('level');
+//        $users = UserCoordinates::where('library', '=', $this->attributes['library'])->count();
+//        return $this->attributes['snippet'] = $this->createBusynessText($busyness)
+//                                                ."\n"
+//                                                .$users." have checked in.";
+//    }
 
     public function getBusynessAttribute()
     {
         $busyness = LibraryBusyness::where('library', '=', $this->attributes['library'])->avg('level');
         return $this->attributes['busyness'] = $this->createBusynessText($busyness);
+    }
+
+    public function getCheckInsAttribute()
+    {
+        return $this->attributes['check_ins'] = UserCoordinates::where('library', '=', $this->attributes['library'])->count();
     }
 
 
