@@ -1,8 +1,10 @@
 <?php
 
 namespace App;
-interface LocationRepositoryInterface {
 
-public function getSnippet($placeId);
+interface LocationRepositoryInterface
+{
+
+    public function getSnippet($placeId);
 
 }

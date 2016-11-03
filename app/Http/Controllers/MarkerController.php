@@ -18,7 +18,7 @@ class MarkerController extends Controller
     public function __construct(LocationRepositoryInterface $locations) //\App\Contracts\LocationRepositoryInterface $locations
     {
         dd(LocationRepositoryInterface::class);
-        //$this->locations= $locations;
+        $this->locations= $locations;
     }
 
     /**
