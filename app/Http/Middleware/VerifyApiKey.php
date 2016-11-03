@@ -24,7 +24,7 @@ class VerifyApiKey
         {
             return redirect('/'); // TODO need to have some form of message
         }
-        dd(LocationRepositoryInterface::class);
+        dd("HERE");
         return $next($request);
     }
 }
