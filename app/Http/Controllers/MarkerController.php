@@ -44,6 +44,11 @@ class MarkerController extends Controller
                 $marker->title = $place->result->name;
             }
 
+            if(isset($place->result->opening_hours->open_now))
+            {
+                $marker->open_now = $this->isOpenNow($place->result->opening_hours->open_now);
+            }
+
 
 
         }
@@ -116,5 +121,10 @@ class MarkerController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function isOpenNow($openNow)
+    {
+        return $openNow ? 'Open now' : 'Closed now';
     }
 }
