@@ -8,14 +8,14 @@ class Marker extends Model
 {
     protected $table = 'markers';
     public $timestamps = false;
-    protected $fillable = ['lat', 'lng', 'timestamp', 'address', 'open_now', 'phone_number'];
+    //protected $fillable = ['lat', 'lng', 'timestamp'];
 
     protected $casts = [
         'lat' => 'float',
         'lng' => 'float'
     ];
 
-    protected $attributes = array(
+    protected $defaults = array(
         'address' => 'Address not available.',
         'open_now' => '',
         'phone_number' => 'Phone number not available.'
