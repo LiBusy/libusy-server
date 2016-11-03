@@ -34,7 +34,7 @@ class Marker extends Model
 
     public function getCheckInsAttribute()
     {
-        return $this->attributes['check_ins'] = UserCoordinates::where('library', '=', $this->attributes['library'])->count();
+        return $this->attributes['check_ins'] = UserCoordinates::where('library', '=', $this->attributes['library'])->count().' have checked in.';
     }
 
 
