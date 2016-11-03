@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Support;
+namespace App;
 
-use App\Contracts\LocationRepositoryInterface;
+use App\LocationRepositoryInterface;
 
 class LocationRepository implements LocationRepositoryInterface {
 

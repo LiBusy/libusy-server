@@ -1,7 +1,6 @@
 <?php
 
-namespace App\Contracts;
-
+namespace App;
 interface LocationRepositoryInterface {
 
 public function getSnippet($placeId);
