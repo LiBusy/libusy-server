@@ -29,45 +29,45 @@ class MarkerController extends Controller
     public function index()
     {
         $markers = Marker::all();
-//        foreach ($markers as $marker)
-//        {
-//            $place = $this->locations->getAll($marker->place_id);
-//
-//            if(isset($place->result->formatted_phone_number))
-//            {
-//                $marker->phone_number = $place->result->formatted_phone_number;
-//            }
-//            else
-//            {
-//                $marker->phone_number = 'Phone number not available';
-//            }
-//
-//            if(isset($place->result->formatted_address))
-//            {
-//                $marker->address = $place->result->formatted_address;
-//            }
-//            else
-//            {
-//                $marker->address = 'Address not available';
-//            }
-//
-//            if(isset($place->result->opening_hours->open_now))
-//            {
-//                $marker->open_now = $this->isOpenNow($place->result->opening_hours->open_now);
-//            }
-//            else
-//            {
-//                $marker->open_now = '';
-//            }
-//
-//            if(isset($place->result->name))
-//            {
-//                $marker->title = $place->result->name;
-//            }
-//
-//
-//
-//        }
+        foreach ($markers as $marker)
+        {
+            $place = $this->locations->getAll($marker->place_id);
+
+            if(isset($place->result->formatted_phone_number))
+            {
+                $marker->phone_number = $place->result->formatted_phone_number;
+            }
+            else
+            {
+                $marker->phone_number = 'Phone number not available';
+            }
+
+            if(isset($place->result->formatted_address))
+            {
+                $marker->address = $place->result->formatted_address;
+            }
+            else
+            {
+                $marker->address = 'Address not available';
+            }
+
+            if(isset($place->result->opening_hours->open_now))
+            {
+                $marker->open_now = $this->isOpenNow($place->result->opening_hours->open_now);
+            }
+            else
+            {
+                $marker->open_now = '';
+            }
+
+            if(isset($place->result->name))
+            {
+                $marker->title = $place->result->name;
+            }
+
+
+
+        }
 
         return response()->json($markers);
     }
