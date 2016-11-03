@@ -42,7 +42,7 @@
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-            "php artisan optimize", "composer dump-autoload"
+            "php artisan optimize"
         ]
     },
     "config": {

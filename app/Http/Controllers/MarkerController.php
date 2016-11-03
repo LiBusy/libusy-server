@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\LocationRepository;
 use App\LocationRepositoryInterface;
 use App\Marker;
 use App\UserCoordinates;
@@ -15,7 +16,7 @@ class MarkerController extends Controller
     private $locations;
 
 
-    public function __construct(LocationRepositoryInterface $locations) //\App\Contracts\LocationRepositoryInterface $locations
+    public function __construct(LocationRepository $locations) //\App\Contracts\LocationRepositoryInterface $locations
     {
         dd(LocationRepositoryInterface::class);
         $this->locations= $locations;

@@ -2,8 +2,6 @@
 
 namespace App;
 
-use App\LocationRepositoryInterface;
-
 class LocationRepository implements LocationRepositoryInterface
 {
 
