@@ -34,6 +34,10 @@ class MarkerController extends Controller
             $place = $this->locations->getAll($marker->place_id);
             dump($place);
 
+            if($place->result->formatted_phone_number != null)
+            {
+                $marker->phone_number = $place->result->formatted_phone_number;
+            }
 
             $marker->title = $place->result->name;
         }

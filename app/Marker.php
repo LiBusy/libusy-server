@@ -15,7 +15,7 @@ class Marker extends Model
         'lng' => 'float'
     ];
 
-    protected $appends = ['snippet'];
+    protected $appends = ['snippet', 'address', 'open_now', 'phone_number'];
 
     public function getSnippetAttribute()
     {
@@ -25,6 +25,22 @@ class Marker extends Model
                                                 ."\n"
                                                 .$users." have checked in.";
     }
+
+    public function getAddressAttribute()
+    {
+        return $this->attributes['address'] = 'Address not available.';
+    }
+
+    public function getOpenNowAttribute()
+    {
+        return $this->attributes['open_now'] = '';
+    }
+
+    public function getPhoneNumberAttribute()
+    {
+        return $this->attributes['phone_number'] = 'Phone number not available.';
+    }
+
 
     private function createBusynessText($response)
     {
