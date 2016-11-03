@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Contracts\LocationRepositoryInterface;
 use App\Marker;
 use Illuminate\Http\Request;
 
@@ -14,9 +13,10 @@ class MarkerController extends Controller
     private $locations;
 
 
-    public function __construct(\App\Contracts\LocationRepositoryInterface $locations)
+    public function __construct() //\App\Contracts\LocationRepositoryInterface $locations
     {
-        $this->locations= $locations;
+        dd("here");
+        //$this->locations= $locations;
     }
 
     /**
@@ -26,7 +26,6 @@ class MarkerController extends Controller
      */
     public function index()
     {
-        dd(LocationRepositoryInterface::class);
         //$this->locations->getSnippet("bone");
         return response()->json(Marker::all());
     }
