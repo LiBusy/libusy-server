@@ -14,7 +14,7 @@ use App\Http\Requests;
 class MarkerController extends Controller
 {
 
-    private $locations;
+    protected $locations;
 
 
     public function __construct(User $locations) //\App\Contracts\LocationRepositoryInterface $locations
