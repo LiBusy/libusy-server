@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Contracts\LocationRepositoryInterface;
 use App\Marker;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class MarkerController extends Controller
 
     public function __construct() //\App\Contracts\LocationRepositoryInterface $locations
     {
-        dd("here");
+        dd(LocationRepositoryInterface::class);
         //$this->locations= $locations;
     }
 
