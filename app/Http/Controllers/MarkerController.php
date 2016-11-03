@@ -33,7 +33,7 @@ class MarkerController extends Controller
         {
             $place = $this->locations->getAll($marker->place_id);
 
-            dump($place);
+            //dump($place);
             if(isset($place->result->formatted_phone_number))
             {
                 $marker->phone_number = $place->result->formatted_phone_number;
