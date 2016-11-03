@@ -23,6 +23,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('App\Contracts\LocationRepositoryInterface', 'App\Services\PusherEventPusher');
+        $this->app->bind('App\Contracts\LocationRepositoryInterface', 'App\Support\LocationRepository');
     }
 }
