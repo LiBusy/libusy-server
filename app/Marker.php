@@ -21,7 +21,7 @@ class Marker extends Model
         'phone_number' => 'Phone number not available.'
     );
 
-    protected $appends = ['snippet'];
+    protected $appends = ['snippet', 'address', 'open_now', 'phone_number'];
 
     public function getSnippetAttribute()
     {
