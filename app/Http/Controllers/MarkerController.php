@@ -32,11 +32,8 @@ class MarkerController extends Controller
         foreach ($markers as $marker)
         {
             $place = $this->locations->getAll($marker->place_id);
-            $result = $place->result;
-            dd($result);
-            // set new attributes
-            $marker->address = $result->formatted_address;
-            $marker->phone_number = $result->formatted_phone_number;
+            dd($place);
+
 
         }
 
