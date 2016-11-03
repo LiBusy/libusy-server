@@ -70,7 +70,7 @@ class MarkerController extends Controller
 
         }
 
-        dd($markers);
+        //dd($markers);
         return response()->json($markers);
     }
 
