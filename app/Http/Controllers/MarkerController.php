@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Contracts\LocationRepositoryInterface;
 use App\Marker;
 use Illuminate\Http\Request;
 
@@ -9,6 +10,12 @@ use App\Http\Requests;
 
 class MarkerController extends Controller
 {
+
+    public function __construct(LocationRepositoryInterface $locations)
+    {
+        $this->locations= $locations;
+    }
+
     /**
      * Display a listing of the resource.
      *

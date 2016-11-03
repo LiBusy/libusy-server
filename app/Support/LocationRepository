@@ -1,0 +1,9 @@
+<?php
+
+class LocationRepository implements \App\Contracts\LocationRepositoryInterface {
+
+    public function getAll()
+    {
+        // TODO: Implement getAll() method.
+    }
+}
