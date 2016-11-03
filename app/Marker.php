@@ -28,7 +28,8 @@ class Marker extends Model
 
     public function getBusynessAttribute()
     {
-        return $this->attributes['busyness'] = LibraryBusyness::where('library', '=', $this->attributes['library'])->avg('level');
+        $busyness = LibraryBusyness::where('library', '=', $this->attributes['library'])->avg('level');
+        return $this->attributes['busyness'] = $this->createBusynessText($busyness);
     }
 
 
