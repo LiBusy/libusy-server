@@ -2,8 +2,8 @@
 
 class LocationRepository implements \App\Contracts\LocationRepositoryInterface {
 
-    public function getAll()
+    public function getSnippet($placeId)
     {
-        // TODO: Implement getAll() method.
+        dump("here");
     }
 }
