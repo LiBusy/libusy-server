@@ -1,4 +1,8 @@
-<?php namespace App;
+<?php
+
+namespace App\Support;
+
+use App\Contracts\LocationRepositoryInterface;
 
 class LocationRepository implements LocationRepositoryInterface
 {

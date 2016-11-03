@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\LocationRepositoryInterface;
+use App\Contracts\LocationRepositoryInterface;
 use App\Marker;
 use Illuminate\Http\Request;
 
