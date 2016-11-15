@@ -15,8 +15,9 @@ class LocationRepository implements LocationRepositoryInterface
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $output = curl_exec($ch);
         curl_close($ch);
-        json_decode($output);
-        dd(json_last_error());
+        dd($output);
+        //json_decode($output);
+        //dd(json_last_error());
         return json_decode($output);
         //$response = http_get($url);
         //return $response;
