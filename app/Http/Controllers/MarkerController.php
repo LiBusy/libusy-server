@@ -28,9 +28,11 @@ class MarkerController extends Controller
     {
         $markers = Marker::all();
         $place = $this->locations->getAll()->today; // retrieve stdclass object of Places JSON
-        dd($place);
+        //dd($place);
         foreach ($markers as $marker) // add fields from Google Places API
         {
+            $libraryInfo = $place->libraries[$marker->library_id];
+            dd($libraryInfo);
 
             if(isset($place->result->formatted_phone_number))
             {
