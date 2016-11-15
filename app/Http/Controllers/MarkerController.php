@@ -32,44 +32,42 @@ class MarkerController extends Controller
         foreach ($markers as $marker) // add fields from Google Places API
         {
             $libraryInfo = $place->libraries[$marker->library_id];
-            dd($libraryInfo);
 
-            if(isset($place->result->formatted_phone_number))
-            {
-                $marker->phone_number = $place->result->formatted_phone_number;
-            }
-            else
-            {
-                $marker->phone_number = 'Phone number not available';
-            }
+//            if(isset($place->result->formatted_phone_number))
+//            {
+//                $marker->phone_number = $place->result->formatted_phone_number;
+//            }
+//            else
+//            {
+//                $marker->phone_number = 'Phone number not available';
+//            }
 
-            if(isset($place->result->formatted_address))
-            {
-                $marker->address = $place->result->formatted_address;
-            }
-            else
-            {
-                $marker->address = 'Address not available';
-            }
+//            if(isset($place->result->formatted_address))
+//            {
+//                $marker->address = $place->result->formatted_address;
+//            }
+//            else
+//            {
+//                $marker->address = 'Address not available';
+//            }
 
-            if(isset($place->result->opening_hours->open_now))
+            if(isset($libraryInfo->isOpen))
             {
-                $marker->open_now = $this->isOpenNow($place->result->opening_hours->open_now);
+                $marker->open_now = $this->isOpenNow($libraryInfo->isOpen);
             }
             else
             {
                 $marker->open_now = 'Open/Closed status not available.';
             }
 
-            if(isset($place->result->name))
+            if(isset($libraryInfo->name))
             {
-                $marker->title = $place->result->name;
+                $marker->title = $libraryInfo->name;
             }
-
-
 
         }
 
+        dd($markers);
         return response()->json($markers);
     }
 
