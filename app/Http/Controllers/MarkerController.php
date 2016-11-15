@@ -7,7 +7,6 @@ use App\Marker;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use Illuminate\Support\Facades\App;
 
 class MarkerController extends Controller
 {
@@ -18,7 +17,6 @@ class MarkerController extends Controller
     public function __construct(LocationRepositoryInterface $locations) //\App\Contracts\LocationRepositoryInterface $locations
     {
         $this->locations = $locations;
-        //dd($this->locations);
     }
 
     /**
@@ -32,8 +30,8 @@ class MarkerController extends Controller
         foreach ($markers as $marker) // add fields from Google Places API
         {
             $place = $this->locations->getAll($marker->place_id); // retrieve stdclass object of Places JSON
+            dd($place);
 
-            //dump($place);
             if(isset($place->result->formatted_phone_number))
             {
                 $marker->phone_number = $place->result->formatted_phone_number;
