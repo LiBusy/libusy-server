@@ -32,7 +32,7 @@ class MarkerController extends Controller
         foreach ($markers as $marker) // add fields from Google Places API
         {
             $libraryInfo = $place->libraries[$marker->library_id];
-
+            dd($libraryInfo);
 //            if(isset($place->result->formatted_phone_number))
 //            {
 //                $marker->phone_number = $place->result->formatted_phone_number;
