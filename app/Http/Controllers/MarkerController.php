@@ -65,6 +65,15 @@ class MarkerController extends Controller
                 $marker->title = $libraryInfo->name;
             }
 
+            if(isset($libraryInfo->hours))
+            {
+                $marker->hours = $libraryInfo->hours;
+            }
+            else
+            {
+                $marker->hours = 'hours not available';
+            }
+
         }
 
         return response()->json($markers);
