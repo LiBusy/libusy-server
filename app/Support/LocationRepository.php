@@ -7,7 +7,7 @@ use App\Contracts\LocationRepositoryInterface;
 class LocationRepository implements LocationRepositoryInterface
 {
 
-    public function getAll($placeId)
+    public function getAll()
     {
         //$url = 'https://maps.googleapis.com/maps/api/place/details/json?placeid='.$placeId.'&key=AIzaSyAseWPTr6P88XO1gm78yUq5MkR9pu1t7jA';
         $url = 'http://www.lib.ua.edu/libhours2/api/today';

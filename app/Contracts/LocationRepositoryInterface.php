@@ -5,6 +5,6 @@ namespace App\Contracts;
 interface LocationRepositoryInterface
 {
 
-    public function getAll($placeId);
+    public function getAll();
 
 }
