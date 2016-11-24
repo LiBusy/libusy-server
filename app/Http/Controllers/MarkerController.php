@@ -80,7 +80,7 @@ class MarkerController extends Controller
                 $marker->busyness = 'Closed';
             }
             else{
-                $markers->busyness = $this->createBusynessText($busyness);
+                $marker->busyness = $this->createBusynessText($busyness);
             }
 
         }
