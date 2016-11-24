@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Marker extends Model
@@ -39,7 +40,9 @@ class Marker extends Model
 
     public function getCheckInsAttribute()
     {
-        return $this->attributes['check_ins'] = UserCoordinates::where('library', '=', $this->attributes['library'])->count().' have checked in.';
+        return $this->attributes['check_ins'] = UserCoordinates::where('library', '=', $this->attributes['library'])
+                                                                ->where('timestamp', '>=', Carbon::parse('1 hours ago'))
+                                                                ->count().' check-ins in the past hour.';
     }
 
 

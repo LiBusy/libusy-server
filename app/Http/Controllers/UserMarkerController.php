@@ -19,7 +19,9 @@ class UserMarkerController extends Controller
      */
     public function index()
     {
-        return UserCoordinates::select('lat', 'lng')->get();
+        return UserCoordinates::select('lat', 'lng')
+                                ->where('timestamp', '>=', Carbon::parse('1 hours ago'))
+                                ->get();
     }
 
     public function postMarker($lat, $lng, $library)

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Contracts\LocationRepositoryInterface;
 use App\LibraryBusyness;
 use App\Marker;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -29,7 +30,6 @@ class MarkerController extends Controller
     {
         $markers = Marker::all();
         $place = $this->locations->getAll()->today;
-        //dd($place);
         foreach ($markers as $marker)
         {
             $libraryInfo = $place->libraries[$marker->library_id];
@@ -74,7 +74,9 @@ class MarkerController extends Controller
                 $marker->hours = 'hours not available';
             }
 
-            $busyness = LibraryBusyness::where('library', '=', $marker->library)->avg('level');
+            $busyness = LibraryBusyness::where('library', '=', $marker->library)
+                                        ->where('timestamp', '>=', Carbon::parse('1 hours ago'))
+                                        ->avg('level');
             if($marker->open_now === 'Closed now')
             {
                 $marker->busyness = 'Closed now';
