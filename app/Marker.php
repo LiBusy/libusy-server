@@ -15,7 +15,7 @@ class Marker extends Model
         'lng' => 'float'
     ];
 
-    protected $appends = ['busyness', 'check_ins'];
+    protected $appends = ['check_ins'];
 
 //    public function getSnippetAttribute()
 //    {
@@ -26,11 +26,16 @@ class Marker extends Model
 //                                                .$users." have checked in.";
 //    }
 
-    public function getBusynessAttribute()
-    {
-        $busyness = LibraryBusyness::where('library', '=', $this->attributes['library'])->avg('level');
-        return $this->attributes['busyness'] = $this->createBusynessText($busyness);
-    }
+//    public function getBusynessAttribute()
+//    {
+//        $busyness = LibraryBusyness::where('library', '=', $this->attributes['library'])->avg('level');
+//        return $this->attributes['busyness'] = $this->createBusynessText($busyness);
+//    }
+//
+//    public function setBusynessAttribute($value)
+//    {
+//        $this->attributes['busyness'] = $value;
+//    }
 
     public function getCheckInsAttribute()
     {

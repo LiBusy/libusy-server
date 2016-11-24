@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contracts\LocationRepositoryInterface;
+use App\LibraryBusyness;
 use App\Marker;
 use Illuminate\Http\Request;
 
@@ -27,9 +28,9 @@ class MarkerController extends Controller
     public function index()
     {
         $markers = Marker::all();
-        $place = $this->locations->getAll()->today; // retrieve stdclass object of Places JSON
+        $place = $this->locations->getAll()->today;
         //dd($place);
-        foreach ($markers as $marker) // add fields from Google Places API
+        foreach ($markers as $marker)
         {
             $libraryInfo = $place->libraries[$marker->library_id];
 //            if(isset($place->result->formatted_phone_number))
@@ -71,6 +72,15 @@ class MarkerController extends Controller
             else
             {
                 $marker->hours = 'hours not available';
+            }
+
+            $busyness = LibraryBusyness::where('library', '=', $marker->library)->avg('level');
+            if($marker->open_now === 'Closed now')
+            {
+                $marker->busyness = 'Closed';
+            }
+            else{
+                $markers->busyness = $this->createBusynessText($busyness);
             }
 
         }
@@ -147,5 +157,21 @@ class MarkerController extends Controller
     private function isOpenNow($openNow)
     {
         return $openNow ? 'Open now' : 'Closed now';
+    }
+
+    private function createBusynessText($response)
+    {
+
+        if ((float) $response < 1.5)
+        {
+            return "Not Busy";
+        }
+
+        if ((float) $response < 2.5)
+        {
+            return "Busy";
+        }
+
+        return "Very Busy";
     }
 }
