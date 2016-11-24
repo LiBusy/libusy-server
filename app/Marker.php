@@ -42,7 +42,7 @@ class Marker extends Model
     {
         return $this->attributes['check_ins'] = UserCoordinates::where('library', '=', $this->attributes['library'])
                                                                 ->where('timestamp', '>=', Carbon::parse('1 hours ago'))
-                                                                ->count().' bones in the past hour.';
+                                                                ->count().' check-ins in the past hour.';
     }
 
 
