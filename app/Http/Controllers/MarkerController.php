@@ -77,7 +77,7 @@ class MarkerController extends Controller
             $busyness = LibraryBusyness::where('library', '=', $marker->library)->avg('level');
             if($marker->open_now === 'Closed now')
             {
-                $marker->busyness = 'Closed';
+                $marker->busyness = '';
             }
             else{
                 $marker->busyness = $this->createBusynessText($busyness);
