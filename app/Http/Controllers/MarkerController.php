@@ -23,7 +23,7 @@ class MarkerController extends Controller
 
     public function getDetails($library)
     {
-        $libraryModel = Marker::where('library', '=', $library)->get();
+        $libraryModel = Marker::where('library', '=', $library)->first();
         dd($libraryModel);
     }
 
