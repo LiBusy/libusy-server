@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Contracts\LocationRepositoryInterface;
 use App\LibraryBusyness;
 use App\Marker;
+use App\UserCoordinates;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,8 @@ class MarkerController extends Controller
     public function getDetails($library)
     {
         $libraryModel = Marker::where('library', '=', $library)->first();
+
+        $libraryModel->totalCheckIns = UserCoordinates::where('library', '=', $library)->count();
         dd($libraryModel);
     }
 
