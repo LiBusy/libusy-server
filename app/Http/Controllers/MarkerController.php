@@ -22,31 +22,6 @@ class MarkerController extends Controller
         $this->locations = $locations;
     }
 
-    public function getDetails($library)
-    {
-        $libraryModel = Marker::where('library', '=', $library)->first();
-
-        $libraryModel->total_check_ins = UserCoordinates::where('library', '=', $library)->count();
-
-        $libraryModel->very_busy_votes = LibraryBusyness::where('library', '=', $library)
-                                                        ->where('timestamp', '>=', Carbon::parse('1 hours ago'))
-                                                        ->where('level', '=', 3)
-                                                        ->count();
-
-        $libraryModel->busy_votes = LibraryBusyness::where('library', '=', $library)
-                                                    ->where('timestamp', '>=', Carbon::parse('1 hours ago'))
-                                                    ->where('level', '=', 2)
-                                                    ->count();
-
-        $libraryModel->not_busy_votes = LibraryBusyness::where('library', '=', $library)
-                                                        ->where('timestamp', '>=', Carbon::parse('1 hours ago'))
-                                                        ->where('level', '=', 1)
-                                                        ->count();
-
-
-        dd($libraryModel);
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -110,6 +85,23 @@ class MarkerController extends Controller
             else{
                 $marker->busyness = $this->createBusynessText($busyness);
             }
+
+            $marker->total_check_ins = UserCoordinates::where('library', '=', $library)->count();
+
+            $marker->very_busy_votes = LibraryBusyness::where('library', '=', $library)
+                ->where('timestamp', '>=', Carbon::parse('1 hours ago'))
+                ->where('level', '=', 3)
+                ->count();
+
+            $marker->busy_votes = LibraryBusyness::where('library', '=', $library)
+                ->where('timestamp', '>=', Carbon::parse('1 hours ago'))
+                ->where('level', '=', 2)
+                ->count();
+
+            $marker->not_busy_votes = LibraryBusyness::where('library', '=', $library)
+                ->where('timestamp', '>=', Carbon::parse('1 hours ago'))
+                ->where('level', '=', 1)
+                ->count();
 
         }
 
