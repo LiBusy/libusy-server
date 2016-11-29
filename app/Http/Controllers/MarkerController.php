@@ -26,7 +26,21 @@ class MarkerController extends Controller
     {
         $libraryModel = Marker::where('library', '=', $library)->first();
 
-        $libraryModel->totalCheckIns = UserCoordinates::where('library', '=', $library)->count();
+        $libraryModel->total_check_ins = UserCoordinates::where('library', '=', $library)->count();
+
+        $libraryModel->very_busy_votes = LibraryBusyness::where('library', '=', $library)
+                                                        ->where('level', '=', 3)
+                                                        ->count();
+
+        $libraryModel->busy_votes = LibraryBusyness::where('library', '=', $library)
+                                                    ->where('level', '=', 2)
+                                                    ->count();
+
+        $libraryModel->not_busy_votes = LibraryBusyness::where('library', '=', $library)
+                                                        ->where('level', '=', 1)
+                                                        ->count();
+
+
         dd($libraryModel);
     }
 
