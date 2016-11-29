@@ -29,14 +29,17 @@ class MarkerController extends Controller
         $libraryModel->total_check_ins = UserCoordinates::where('library', '=', $library)->count();
 
         $libraryModel->very_busy_votes = LibraryBusyness::where('library', '=', $library)
+                                                        ->where('timestamp', '>=', Carbon::parse('1 hours ago'))
                                                         ->where('level', '=', 3)
                                                         ->count();
 
         $libraryModel->busy_votes = LibraryBusyness::where('library', '=', $library)
+                                                    ->where('timestamp', '>=', Carbon::parse('1 hours ago'))
                                                     ->where('level', '=', 2)
                                                     ->count();
 
         $libraryModel->not_busy_votes = LibraryBusyness::where('library', '=', $library)
+                                                        ->where('timestamp', '>=', Carbon::parse('1 hours ago'))
                                                         ->where('level', '=', 1)
                                                         ->count();
 
