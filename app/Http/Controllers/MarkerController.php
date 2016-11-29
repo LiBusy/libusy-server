@@ -86,19 +86,19 @@ class MarkerController extends Controller
                 $marker->busyness = $this->createBusynessText($busyness);
             }
 
-            $marker->total_check_ins = UserCoordinates::where('library', '=', $library)->count();
+            $marker->total_check_ins = UserCoordinates::where('library', '=', $marker->library)->count();
 
-            $marker->very_busy_votes = LibraryBusyness::where('library', '=', $library)
+            $marker->very_busy_votes = LibraryBusyness::where('library', '=', $marker->library)
                 ->where('timestamp', '>=', Carbon::parse('1 hours ago'))
                 ->where('level', '=', 3)
                 ->count();
 
-            $marker->busy_votes = LibraryBusyness::where('library', '=', $library)
+            $marker->busy_votes = LibraryBusyness::where('library', '=', $marker->library)
                 ->where('timestamp', '>=', Carbon::parse('1 hours ago'))
                 ->where('level', '=', 2)
                 ->count();
 
-            $marker->not_busy_votes = LibraryBusyness::where('library', '=', $library)
+            $marker->not_busy_votes = LibraryBusyness::where('library', '=', $marker->library)
                 ->where('timestamp', '>=', Carbon::parse('1 hours ago'))
                 ->where('level', '=', 1)
                 ->count();
