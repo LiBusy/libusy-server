@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'verify.key'], function()
 {
-    Route::get('busyness/details/{library}', 'BusynessApiController@getDetails');
+    Route::get('markers/details/{library}', 'MarkerController@getDetails');
     Route::get('busyness/getlevel/{library}', 'BusynessApiController@getBusynessLevel');
     Route::post('busyness/checkin/{library}/{busyness}', 'BusynessApiController@postCheckIn');
     Route::post('usermarkers/postmarker/{lat}/{lng}/{library}', 'UserMarkerController@postMarker')->middleware('verify.coordinates');

@@ -21,6 +21,12 @@ class MarkerController extends Controller
         $this->locations = $locations;
     }
 
+    public function getDetails($library)
+    {
+        $libraryModel = Marker::where('library', '=', $library)->get();
+        dd($libraryModel);
+    }
+
     /**
      * Display a listing of the resource.
      *

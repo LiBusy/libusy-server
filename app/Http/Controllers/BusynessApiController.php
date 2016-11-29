@@ -22,12 +22,6 @@ class BusynessApiController extends Controller
         return response()->json($busyness);
     }
 
-    public function getDetails($library)
-    {
-        $libraryModel = Marker::where('library', '=', $library);
-        dd($libraryModel);
-    }
-
     public function postCheckIn($library, $busyness)
     {
         $libraryBusyness = new LibraryBusyness();
