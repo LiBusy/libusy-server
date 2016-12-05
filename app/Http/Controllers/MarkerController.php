@@ -17,7 +17,7 @@ class MarkerController extends Controller
     protected $locations;
 
 
-    public function __construct(LocationRepositoryInterface $locations) //\App\Contracts\LocationRepositoryInterface $locations
+    public function __construct(LocationRepositoryInterface $locations)
     {
         $this->locations = $locations;
     }
@@ -34,23 +34,7 @@ class MarkerController extends Controller
         foreach ($markers as $marker)
         {
             $libraryInfo = $place->libraries[$marker->library_id];
-//            if(isset($place->result->formatted_phone_number))
-//            {
-//                $marker->phone_number = $place->result->formatted_phone_number;
-//            }
-//            else
-//            {
-//                $marker->phone_number = 'Phone number not available';
-//            }
 
-//            if(isset($place->result->formatted_address))
-//            {
-//                $marker->address = $place->result->formatted_address;
-//            }
-//            else
-//            {
-//                $marker->address = 'Address not available';
-//            }
 
             if(isset($libraryInfo->isOpen))
             {
